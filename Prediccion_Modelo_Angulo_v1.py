@@ -7,8 +7,8 @@ from math import degrees, atan2
 from sklearn.preprocessing import StandardScaler  # Importar StandardScaler
 
 # Cargar el modelo y el scaler
-model = tf.keras.models.load_model('Model.keras')  # Corregir nombre del archivo
-scaler_params = np.load('scaler_params.npy', allow_pickle=True).item()
+model = tf.keras.models.load_model('/home/matias/Escritorio/Sing_Tanslate/Modelos/V1/V1.3/Model.keras')  # Corregir nombre del archivo
+scaler_params = np.load('/home/matias/Escritorio/Sing_Tanslate/Modelos/V1/V1.3/scaler_params.npy', allow_pickle=True).item()
 scaler = StandardScaler()
 scaler.mean_ = scaler_params['mean']
 scaler.scale_ = scaler_params['scale']
@@ -19,7 +19,7 @@ hands = mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=1,
     min_detection_confidence=0.7,
-    min_tracking_confidence=0.5
+    min_tracking_confidence=0.7
 )
 
 def get_point_3d(landmarks, id):
